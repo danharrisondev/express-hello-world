@@ -13,5 +13,5 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'ls $(Pipeline.Workspace)'
+    script: 'ls $(Pipeline.Workspace)/s'
   
