@@ -23,6 +23,6 @@ steps:
       azureSubscription: 'Pay-As-You-Go(1647cdc9-e603-4fad-9c60-a1368dfd6fdf)'
       appType: 'webAppLinux'
       WebAppName: 'dhazdo-express-hello-world'
-      packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
       RuntimeStack: 'NODE|16-lts'
   
