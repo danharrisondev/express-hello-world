@@ -10,19 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - task: ArchiveFiles@2
+  - task: Npm@1
     inputs:
-      rootFolderOrFile: '$(Pipeline.Workspace)/s'
-      includeRootFolder: true
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-      replaceExistingArchive: true
-  - task: AzureRmWebAppDeployment@4
-    inputs:
-      ConnectionType: 'AzureRM'
-      azureSubscription: 'Pay-As-You-Go(1647cdc9-e603-4fad-9c60-a1368dfd6fdf)'
-      appType: 'webAppLinux'
-      WebAppName: 'dhazdo-express-hello-world'
-      packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-      RuntimeStack: 'NODE|16-lts'
-  
+      command: 'install'
