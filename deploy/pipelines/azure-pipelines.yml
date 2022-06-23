@@ -1,0 +1,17 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: Npm@1
+    inputs:
+      command: 'install'
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(Pipeline.Workspace)/s'
+      includeRootFolder: true
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
